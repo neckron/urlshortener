@@ -4,27 +4,40 @@
    <% include ../partials/header.ejs %>
 </head>
     <body>
-        <div class="container">
-            <h1 class="header">
-                URLShortener microservice
-            </h1>
-            <blockquote>
-                User stories:
-                <br/>
-                <ul>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</ul>
-                <ul>2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</ul>
-                <ul>3) When I visit that shortened URL, it will redirect me to my original link.</ul>
-            </blockquote>
-            <h3>Example usage:</h3>
-            <code>http://localhost:8000/December%2015,%202015</code><br>
-            <code>http://localhost:8000/1450137600</code>
-            <h3>Example output:</h3>
-            <code>
-                {
-                  "unix": 1450137600,
-                  "natural": "December 15, 2015"
-                }
-            </code>
-        </div>
+      <h1>URLShortener microservice</h1>
+
+        <div class="listing">
+          <h3>User stories:</h3>
+          <ul>
+                <li>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+                <li>2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
+                <li>3) When I visit that shortened URL, it will redirect me to my original link.</li>
+          </ul>
+          </div>
+
+
+            <div class="listing">
+            <h3>Example creation usage:</h3>
+              <div>
+              <code>https://host:port/create/www.google.com</code>
+              <code>https://host:port/create/http://foo.com:80</code>
+            </div>
+              <br/>
+              <br/>
+              <h3>Example output:</h3>
+              <div>
+                <code>
+                    {"original_url" : "www.google.com", "short_url" : "https://host:port/AxJi12"}
+                </code>
+              </div>
+            </div>
+            <div class="listing">
+              <h3>Finding url:</h3>
+              <div>
+                <code>
+                    https://host:port/AxJi12 will redirecto to : www.google.com
+                </code>
+              </div>
+            </div>
     </body>
 </html>

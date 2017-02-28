@@ -1,8 +1,8 @@
 var express = require('express');
 var mongodb = require('mongodb');
 var randomstring = require("randomstring");
-var dotenv = require('dotenv');
-dotenv.load();
+var dotenv = require('dotenv').config();
+var validator = require('validator');
 var app = express();
 
 // ----------------------------------------------- setup view engine
@@ -12,6 +12,8 @@ app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
   res.render('pages/index.ejs');
 })
+
+app.use(express.static(__dirname + '/public'));
 
 // ----------------------------------------------- using mongodb
 
@@ -23,6 +25,7 @@ var url = process.env.MONGODB_URI;
 // ----------------------------------------------- setup routes
 
 app.get('/create/:param' , function(req ,res) {
+  if(validator.isURL(req.params.param )){
   MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
@@ -44,6 +47,9 @@ app.get('/create/:param' , function(req ,res) {
      });
   }
 });
+}else{
+  res.send({'error':'Invalid URL'});
+}
 });
 
 app.get('/:param' , function(req, res){
