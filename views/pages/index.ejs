@@ -1,0 +1,30 @@
+
+<html lang="en">
+<head>
+   <% include ../partials/header.ejs %>
+</head>
+    <body>
+        <div class="container">
+            <h1 class="header">
+                URLShortener microservice
+            </h1>
+            <blockquote>
+                User stories:
+                <br/>
+                <ul>1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</ul>
+                <ul>2) If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</ul>
+                <ul>3) When I visit that shortened URL, it will redirect me to my original link.</ul>
+            </blockquote>
+            <h3>Example usage:</h3>
+            <code>http://localhost:8000/December%2015,%202015</code><br>
+            <code>http://localhost:8000/1450137600</code>
+            <h3>Example output:</h3>
+            <code>
+                {
+                  "unix": 1450137600,
+                  "natural": "December 15, 2015"
+                }
+            </code>
+        </div>
+    </body>
+</html>
