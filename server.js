@@ -1,6 +1,8 @@
 var express = require('express');
 var mongodb = require('mongodb');
 var randomstring = require("randomstring");
+var dotenv = require('dotenv');
+dotenv.load();
 var app = express();
 
 // ----------------------------------------------- setup view engine
@@ -14,7 +16,7 @@ app.get('/', function (req, res) {
 // ----------------------------------------------- using mongodb
 
 var MongoClient = mongodb.MongoClient;
-var url = 'mongodb://localhost:27017/urls';
+var url = process.env.MONGODB_URI;
 
 
 
@@ -73,7 +75,7 @@ function getHost(req, generatedString){
   return req.protocol + '://' + req.get('host')+'/'+generatedString;
 }
 
-var port = 8000;
-app.listen(port, function () {
-  console.log('Example app listening on port %s!',port);
+
+app.listen(process.env.PORT || 5000, function () {
+  console.log('Example app listening on port %s!',process.env.PORT);
 })

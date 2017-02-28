@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/neckron/urlshortener/issues"
   },
-  "homepage": "https://github.com/neckron/urlshortener#readme"
+  "homepage": "https://github.com/neckron/urlshortener#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "randomstring": "^1.1.5"
+  }
 }
