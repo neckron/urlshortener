@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <title>Url Shortener Microservice</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,700" rel="stylesheet">
+</head>
+    <body>
+
+        <div class="container">
+          <div class="title">
+            <h1>URLShortener microservice</h1>
+          </div>
+          <div class="stories">
+          <h2>User stories:</h2>
+          <ul>
+                <li><p>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</p></li>
+                <li><p>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</p></li>
+            <li><p>When I visit that shortened URL, it will redirect me to my original link.</p></li>
+          </ul>
+        </div>
+        <div class="example">
+            <h2>Example creation usage:</h2>
+              <div class="display">
+              <p>https://host:port/create/www.google.com</p>
+              <p>https://host:port/create/http://foo.com:80</p>
+            </div>
+              <h2>Example output:</h2>
+              <div class="display">
+                <p>{"original_url" : "www.google.com", "short_url" : "https://host:port/AxJi12"}
+                </p>
+              </div>
+          </div>
+          <div class="stories">
+              <h2>Finding url:</h2>
+              <div class="display">
+                <p>
+                    https://host:port/AxJi12 will redirecto to : www.google.com
+                </p>
+              </div>
+          </div>
+    </body>
+</html>
